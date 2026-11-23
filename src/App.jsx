@@ -62,13 +62,6 @@ function Welcome({info,setInfo,photos,addPhotos,onEnter}){
     h('form',{className:'card',onSubmit:submit,style:{transform:'rotateX('+tilt.x+'deg) rotateY('+tilt.y+'deg)'}},
       h('h1',null,'Mừng Ngày Nhà Giáo Việt Nam'),
       h('p',{className:'sub'},'20/11 — Gửi cô một chuyến phiêu lưu giữa các vì sao ✨'),
-      h('label',null,'Tên cô giáo (không bắt buộc)'),
-      h('input',{type:'text',placeholder:'VD: Lan',value:info.teacher,maxLength:30,onChange:e=>setInfo({...info,teacher:e.target.value})}),
-      h('label',null,'Tên của em (không bắt buộc)'),
-      h('input',{type:'text',placeholder:'VD: Minh',value:info.student,maxLength:30,onChange:e=>setInfo({...info,student:e.target.value})}),
-      h('label',null,'Ngày tháng năm'),
-      h('input',{type:'date',value:info.date,onChange:e=>{setErr('');setInfo({...info,date:e.target.value})}}),
-      err&&h('div',{className:'err'},err),
       h('label',{className:'upl'},photos.length?('📷 Đã chọn '+photos.length+' ảnh — chọn thêm'):'📷 Thêm ảnh của cô (tuỳ chọn)',
         h('input',{type:'file',accept:'image/*',multiple:true,onChange:e=>{addPhotos(e.target.files);e.target.value=''}})),
       h('button',{type:'submit',className:'go'},'Vào 🌸')
